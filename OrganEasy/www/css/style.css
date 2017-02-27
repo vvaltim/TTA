@@ -1,1 +1,118 @@
-/* Empty. Add your own CSS if you like */
+/* CSS que tava no index.html */
+.platform-ios .manual-ios-statusbar-padding{
+    padding-top:20px;
+}
+.manual-remove-top-padding{
+    padding-top:0px;
+}
+.manual-remove-top-padding .scroll{
+    padding-top:0px !important;
+}
+ion-list.manual-list-fullwidth div.list, .list.card.manual-card-fullwidth {
+    margin-left:-10px;
+    margin-right:-10px;
+}
+ion-list.manual-list-fullwidth div.list > .item, .list.card.manual-card-fullwidth > .item {
+    border-radius:0px;
+    border-left:0px;
+    border-right: 0px;
+}
+.show-list-numbers-and-dots ul{
+    list-style-type: disc;
+    padding-left:40px;
+}
+.show-list-numbers-and-dots ol{
+    list-style-type: decimal;
+    padding-left:40px;
+}
+
+/* Cores*/
+.teste {
+    background-color: #6b7f83;
+    /*background-color: #3C97d8;
+    background-color: #4dadf2;
+    background-color: #95c4e5;
+    background-color: #a3d9ff;*/
+}
+
+/* --------------- Nav bar pesonalizadas --------------- */
+/* HeadBar */
+.bar.bar-principal {
+    border-color: #9318ff;
+    background-color: #9355ff;
+    background-image: linear-gradient(0deg, #9318ff, #9318ff 50%, transparent 50%);
+    color: #fff;
+}
+.bar.bar-principal .title {
+    color: #fff;
+}
+.bar.bar-principal.bar-footer {
+    background-image: linear-gradient(180deg, #9318ff, #9318ff 50%, transparent 50%);
+}
+.bar-principal .button {
+    border-color: #9318ff;
+    background-color: #9355ff;
+    color: #fff;
+}
+.bar-principal .button:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.bar-principal .button.active, .bar-principal .button.activated {
+    border-color: #9318ff;
+    background-color: #9318ff;
+}
+.bar-principal .button.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #fff;
+    font-size: 17px;
+}
+.bar-principal .button.button-icon {
+    border-color: transparent;
+    background: none;
+}
+.button-bar.bar-principal > .button {
+    border-color: #9318ff;
+}
+/* SubHead */
+.bar.bar-secundaria {
+    border-color: #9377ff;
+    background-color: #9381ff;
+    background-image: linear-gradient(0deg, #9377ff, #9377ff 50%, transparent 50%);
+    color: #fff;
+}
+.bar.bar-secundaria .title {
+    color: #fff;
+}
+.bar.bar-secundaria.bar-footer {
+    background-image: linear-gradient(180deg, #9377ff, #9377ff 50%, transparent 50%);
+}
+.bar-secundaria .button {
+    border-color: #9377ff;
+    background-color: #9381ff;
+    color: #fff;
+}
+.bar-secundaria .button:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.bar-secundaria .button.active, .bar-secundaria .button.activated {
+    border-color: #9377ff;
+    background-color: #9377ff;
+}
+.bar-secundaria .button.button-clear {
+    border-color: transparent;
+    background: none;
+    box-shadow: none;
+    color: #fff;
+    font-size: 17px;
+}
+.bar-secundaria .button.button-icon {
+    border-color: transparent;
+    background: none;
+}
+.button-bar.bar-secundaria > .button {
+    border-color: #9377ff;
+}

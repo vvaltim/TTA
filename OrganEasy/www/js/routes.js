@@ -46,6 +46,16 @@ angular.module('app.routes', [])
         }
     })
 
+    .state('menu.cadastroDeProfessor', {
+        url: '/registerTeacher',
+        views: {
+            'side-menu21': {
+                templateUrl: 'templates/cadastroDeProfessor.html',
+                controller: 'cadastroDeProfessorCtrl'
+            }
+        }
+    })
+
     .state('menu.disciplina', {
         url: '/disciplina',
         views: {
@@ -62,6 +72,16 @@ angular.module('app.routes', [])
             'side-menu21': {
                 templateUrl: 'templates/categoria.html',
                 controller: 'categoriaCtrl'
+            }
+        }
+    })
+
+    .state('menu.professor', {
+        url: '/professor',
+        views: {
+            'side-menu21': {
+                templateUrl: 'templates/professor.html',
+                controller: 'professorCtrl'
             }
         }
     })

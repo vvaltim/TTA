@@ -25,6 +25,7 @@
                     <textarea name="anotacao" placeholder="Anotação" ng-model="professor.anotacao">
                     </textarea>
                 </label>
+                <button class="button button-royal button-block" ng-disabled="formulario.$invalid" ng-click="salvar(professor)">Salvar</button>
             </form>
         </div>
         <button class="button button-royal button-block" ng-disabled="formulario.$invalid" ng-click="salvar(professor)">Salvar</button>

@@ -55,46 +55,17 @@ sqlite.factory('ProfessorFactory', function ($cordovaSQLite) {
                 }
             );*/
         },
-
         selectAll: function () {
-            var query = 'SELECT * FROM professor';
-            var values = [];
-            console.log(db);
             //abrindo transação com o banco
-            db.transaction(function (tx) {
-                tx.executeSql(query, value, function (tx, rs) {
-                    console.log('Record count (expected to be 2): ' + rs.rows.item(0).mycount);
-                    console.log(tx);
-                    console.log(rs);
-                }, function (tx, error) {
-                    console.log('SELECT error: ' + error.message);
-                });
+            db.executeSql('SELECT * FROM professor', [], function (resultSet) {
+                console.log("Resultado da query");
+                var qnt = resultSet.rows.length;
+                for (var i = 0; i < qnt; i++) {
+                    console.log(resultSet.rows.item(i));
+                }
+            }, function (tx, error) {
+                console.log('SELECT error: ' + error.message);
             });
-
-
-
-            // db.transaction(function (tx) {
-            //     tx.executeSql(query, values);
-            // }, function (error) {
-            //     console.log('Erro de conexão: ' + error.message);
-            // }, function () {
-            //     console.log('Populado com sucesso')
-            // });
-
-
-            // $cordovaSQLite.execute(db, query, []).then(
-            //     function (res) {
-            //         if (res.rows.length > 0) {
-            //             var first = res.rows.item(0);
-            //             console.log("Retornando todos os resultados");
-            //             console.log(res);
-            //         } else {
-            //             console.log('Sem professor encontrados');
-            //         }
-            //     }, function (error) {
-            //         console.log("Erro ao buscar registro: " + error);
-            //     }
-            // );
         },
         select: function (idProfessor) {
             var query = "SELECT * FROM professor WHERE id=?";

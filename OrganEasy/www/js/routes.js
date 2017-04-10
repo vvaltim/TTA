@@ -56,6 +56,16 @@ angular.module('app.routes', [])
         }
     })
 
+    .state('menu.detalhamentoDeProfessor', {
+        url: '/viewTeacher',
+        views: {
+            'side-menu21': {
+                templateUrl: 'templates/detalhamentoDeProfessor.html',
+                controller: 'detalhamentoDeProfessorCtrl'
+            }
+        }
+    })
+
     .state('menu.disciplina', {
         url: '/disciplina',
         views: {

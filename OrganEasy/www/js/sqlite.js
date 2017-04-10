@@ -17,7 +17,7 @@ sqlite.run(function ($ionicPlatform, $cordovaSQLite) {
         }, function (error) {
             console.log('Erro de conexão: ' + error.message);
         }, function () {
-            console.log('Tabela criada com sucesso');
+            //console.log('Tabela criada com sucesso');
         });
 
         //$cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS professor (id_professor integer primary key, nome_professor text, email_professor text, telefone_professor text, anotacao_professor text)");
@@ -32,15 +32,19 @@ sqlite.factory('ProfessorFactory', function ($cordovaSQLite, $ionicPopup) {
     var professor = {};
     return {
         getProfessor: function () {
+            //console.log("Retornando professor:");
+            //console.log(professor);
             return professor;
         },
         setProfessor: function (pessoa) {
+            //console.log("Setando professor:");
+            //console.log(professor);
             professor = pessoa;
         },
         insert: function (professor) {
             var query = "INSERT INTO professor (nome_professor, email_professor, telefone_professor, anotacao_professor) VALUES (?, ?, ?, ?)";
             var values = [professor.nome, professor.email, professor.telefone, professor.anotacao];
-            console.log(db);
+            //console.log(db);
             //abrindo transação com o banco
             db.transaction(function (tx) {
                 //tx e a conexão aberta, com ela vc executa as query
@@ -60,7 +64,7 @@ sqlite.factory('ProfessorFactory', function ($cordovaSQLite, $ionicPopup) {
                     template: 'Registro salvo com sucesso!',
                     type: 'button-balanced'
                 });
-                console.log('Populado com sucesso')
+                //console.log('Populado com sucesso')
             });
             /*$cordovaSQLite.execute(db, query, values).then(
                 function (res) {
@@ -84,10 +88,10 @@ sqlite.factory('ProfessorFactory', function ($cordovaSQLite, $ionicPopup) {
                     //console.log(resultSet.rows.item(i));
                     resultadoProfessor.push(resultSet.rows.item(i));
                 }
-                console.log(resultadoProfessor);
+                //console.log(resultadoProfessor);
 
             }, function (tx, error) {
-                console.log('SELECT error: ' + error.message);
+                //console.log('SELECT error: ' + error.message);
             });
             return resultadoProfessor;
         },

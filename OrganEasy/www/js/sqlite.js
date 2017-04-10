@@ -27,8 +27,16 @@ sqlite.run(function ($ionicPlatform, $cordovaSQLite) {
     });
 });
 
-sqlite.factory('ProfessorFactory', function ($cordovaSQLite) {
+sqlite.factory('ProfessorFactory', function ($cordovaSQLite, $ionicPopup) {
+    //variavel global
+    var professor = {};
     return {
+        getProfessor: function () {
+            return professor;
+        },
+        setProfessor: function (pessoa) {
+            professor = pessoa;
+        },
         insert: function (professor) {
             var query = "INSERT INTO professor (nome_professor, email_professor, telefone_professor, anotacao_professor) VALUES (?, ?, ?, ?)";
             var values = [professor.nome, professor.email, professor.telefone, professor.anotacao];
@@ -39,9 +47,19 @@ sqlite.factory('ProfessorFactory', function ($cordovaSQLite) {
                 tx.executeSql(query, values);
             }, function (error) {
                 //função de error
+                $ionicPopup.alert({
+                    title: 'Erro',
+                    template: 'Não e possível salvar!',
+                    type: 'button-assertive'
+                });
                 console.log('Erro de conexão: ' + error.message);
             }, function () {
                 //função de sucess sem retorno, pois so foi inserido
+                $ionicPopup.alert({
+                    title: 'Sucesso',
+                    template: 'Registro salvo com sucesso!',
+                    type: 'button-balanced'
+                });
                 console.log('Populado com sucesso')
             });
             /*$cordovaSQLite.execute(db, query, values).then(
@@ -57,15 +75,21 @@ sqlite.factory('ProfessorFactory', function ($cordovaSQLite) {
         },
         selectAll: function () {
             //abrindo transação com o banco
+            var resultadoProfessor = [];
             db.executeSql('SELECT * FROM professor', [], function (resultSet) {
                 console.log("Resultado da query");
                 var qnt = resultSet.rows.length;
+
                 for (var i = 0; i < qnt; i++) {
-                    console.log(resultSet.rows.item(i));
+                    //console.log(resultSet.rows.item(i));
+                    resultadoProfessor.push(resultSet.rows.item(i));
                 }
+                console.log(resultadoProfessor);
+
             }, function (tx, error) {
                 console.log('SELECT error: ' + error.message);
             });
+            return resultadoProfessor;
         },
         select: function (idProfessor) {
             var query = "SELECT * FROM professor WHERE id=?";

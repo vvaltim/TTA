@@ -5,6 +5,7 @@
     </ion-header-bar>
     <ion-content padding="true" class="has-header">
         <form class="list" name="formulario">
+          <div>
             <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : formulario.nome.$invalid && !formulario.nome.$pristine }">
                 <span class="input-label">Nome</span>
                 <span class="form-error" ng-show="formulario.nome.$error.required && !formulario.nome.$pristine">Nome é obrigatório</span>
@@ -12,6 +13,7 @@
                 <span class="form-error" ng-show="formulario.nome.$error.maxlength && !formulario.nome.$pristine">No maximo 10 caracteres</span>
                 <input type="text" placeholder="Nome" name="nome" ng-model="categoria.name" minlength="2" ng-maxlength="10" required>
             </label>
+          </div>
             <button id="cadastroDeCategoria-button3" class="button button-balanced button-block" ng-disabled="formulario.$invalid">Salvar</button>
         </form>
     </ion-content>

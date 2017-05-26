@@ -10,8 +10,11 @@ angular.module('app.controllers')
             $state.go('menu.detalhamentoDeProfessor');
         }
 
-        $scope.editar = function (id) {
-            console.log(id);
+        $scope.editar = function (professor) {
+            console.log(professor);
+            ProfessorFactory.setProfessor(professor);
+            console.log('Pos set professor');
+            $state.go('menu.editarProfessor');
         }
 
         $scope.excluir = function (id) {

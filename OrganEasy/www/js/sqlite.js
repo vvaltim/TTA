@@ -29,7 +29,7 @@ sqlite.run(function ($ionicPlatform, $cordovaSQLite) {
 
 sqlite.factory('ProfessorFactory', function ($cordovaSQLite, $ionicPopup) {
     //variavel global
-    var professor = {};
+    var professor = [];
     return {
         getProfessor: function () {
             //console.log("Retornando professor:");
@@ -66,16 +66,6 @@ sqlite.factory('ProfessorFactory', function ($cordovaSQLite, $ionicPopup) {
                 });
                 //console.log('Populado com sucesso')
             });
-            /*$cordovaSQLite.execute(db, query, values).then(
-                function (res) {
-                    alert(res.insertId);
-                    console.log('INSERTED ID: ' + res.insertId);
-                },
-                function (err) {
-                    alert(res.insertId);
-                    console.log('ERROR: ' + err);
-                }
-            );*/
         },
         selectAll: function () {
             //abrindo transação com o banco
@@ -95,9 +85,9 @@ sqlite.factory('ProfessorFactory', function ($cordovaSQLite, $ionicPopup) {
             });
             return resultadoProfessor;
         },
-        select: function (idProfessor) {
-            var query = "SELECT * FROM professor WHERE id=?";
-            var values = [id];
+        update: function (idProfessor, novoProfessor) {
+            var query = "UPDATE professor SET nome_professor = ?, email_professor = ?, telefone_professor = ?, anotacao_professor = ? WHERE id_professor = ?";
+            var values = [novoProfessor.nome_professor, novoProfessor.email_professor, novoProfessor.telefone_professor, novoProfessor.anotacao_professor, idProfessor];
 
             $cordovaSQLite.execute(db, query, values).then(
                 function (res) {

@@ -9,7 +9,7 @@
             <ion-list>
                 <ion-item ng-repeat="professor in professores" ng-click="visualizar(professor)">
                     {{professor.nome_professor}}
-                    <ion-option-button class="button-energized" ng-click="editar(professor.id_professor)"><i class="icon ion-edit"></i></ion-option-button>
+                    <ion-option-button class="button-energized" ng-click="editar(professor)"><i class="icon ion-edit"></i></ion-option-button>
                     <ion-option-button class="button-assertive" ng-click="excluir(professor.id_professor)"><i class="icon ion-trash-a"></i></ion-option-button>
                 </ion-item>
             </ion-list>

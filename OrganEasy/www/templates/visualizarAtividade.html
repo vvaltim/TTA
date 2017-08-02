@@ -1,0 +1,33 @@
+<ion-view title="OrganEasy">
+    <!-- Subbarra com botões -->
+    <ion-header-bar class="bar-subheader bar-secundaria">
+        <h1 class="title">Detalhamento</h1>
+        <div class="button button-clear">
+            <button class="button button-balanced" ng-click="editar()"><i class="icon ion-edit"></i></button>
+            <button class="button button-balanced" ng-click="excluir()"><i class="icon ion-trash-b"></i></button>
+        </div>
+    </ion-header-bar>
+    <ion-content padding="true" class="has-header">
+        <div class="card">
+            <div class="item item-text-wrap">
+                <strong>Descricao: </strong> {{atividade.descricao}}
+            </div>
+            <div class="item">
+                <strong>Disciplina: </strong>{{atividade.disciplina.nome}}
+            </div>
+            <div class="item">
+                <strong>Categoria: </strong>{{atividade.categoria.nome}}
+            </div>
+            <div class="item">
+                <strong>Data: </strong>{{atividade.data}}
+            </div>
+            <div class="item">
+                <strong>Valor: </strong>{{atividade.valor}}
+            </div>
+            <div class="item" ng-show="atividade.notaObtida != 0">
+                <strong>Nota Obtida: </strong>{{atividade.notaObtida}}
+            </div>
+        </div>
+        <button class="button button-royal button-block" ng-click="alterarNota(atividade.id)">Enviar pontuação obtida</button>
+    </ion-content>
+</ion-view>

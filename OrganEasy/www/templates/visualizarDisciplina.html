@@ -1,0 +1,19 @@
+<ion-view title="OrganEasy">
+    <!-- Subbarra com botões -->
+    <ion-header-bar class="bar-subheader bar-secundaria">
+        <h1 class="title">Detalhamento</h1>
+    </ion-header-bar>
+    <ion-content padding="true" class="has-header">
+        <div class="card">
+            <div class="item">
+                <strong>Nome: </strong> {{disciplina.nome}}
+            </div>
+            <div class="item">
+                <strong>Professor(a): </strong>{{disciplina.professor.nome}}
+            </div>
+            <div class="item">
+                <strong>E-mail: </strong>{{disciplina.professor.email}}
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

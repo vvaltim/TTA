@@ -7,10 +7,10 @@
     <ion-content padding="true" class="has-header">
         <div class="card">
             <ion-list>
-                <ion-item>
-                    Categoria tal
-                    <ion-option-button class="button-energized"><i class="icon ion-edit"></i></ion-option-button>
-                    <ion-option-button class="button-assertive"><i class="icon ion-trash-a"></i></ion-option-button>
+                <ion-item ng-repeat="categoria in categorias">
+                    {{categoria.nome}}
+                    <ion-option-button class="button-energized" ng-click="editar(categoria)"><i class="icon ion-edit"></i></ion-option-button>
+                    <ion-option-button class="button-assertive" ng-click="excluir(categoria)"><i class="icon ion-trash-a"></i></ion-option-button>
                 </ion-item>
             </ion-list>
         </div>

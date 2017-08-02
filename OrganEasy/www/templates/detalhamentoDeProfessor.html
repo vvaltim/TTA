@@ -7,19 +7,20 @@
         <div class="card">
             <div class="item item-icon-left">
                 <i class="icon ion-person"></i>
-                {{professor.nome_professor}}
+                {{professor.nome}}
             </div>
             <div class="item item-icon-left">
                 <i class="icon ion-email"></i>
-                {{professor.email_professor}}
+                {{professor.email}}
             </div>
             <div class="item item-icon-left">
                 <i class="icon ion-android-call"></i>
-                {{professor.telefone_professor}}
+                {{professor.telefone}}
             </div>
             <div class="item item-body">
-                <strong>Anotação:</strong> {{professor.anotacao_professor}}
+                <strong>Anotação:</strong> {{professor.anotacao}}
             </div>
         </div>
+        <button class="button button-energized button-block"ng-click="editar()">Salvar</button>
     </ion-content>
 </ion-view>

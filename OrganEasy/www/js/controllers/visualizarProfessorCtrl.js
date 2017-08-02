@@ -1,5 +1,5 @@
 angular.module('app.controllers')
-    .controller('editarProfessorCtrl', function ($scope, $ionicPopup, $state, $ionicLoading, ProfessorService, MobileFactory) {
+    .controller('visualizarProfessorCtrl', function ($scope, $ionicPopup, $state, $ionicLoading, ProfessorService, MobileFactory) {
         $scope.professor = [];
         $scope.$on('$ionicView.enter', function () {
             //chamar o evento toda vez que entra na view
@@ -14,24 +14,7 @@ angular.module('app.controllers')
                 console.data(error);
             });
         });
-
-        $scope.salvar = function (professor) {
-            exibirLoading();
-            MobileFactory.editarProfessor(professor).then(function (data) {
-                $ionicLoading.hide();
-                console.log(data);
-                $state.go('menu.professor');
-            }, function (error) {
-                $ionicLoading.hide();
-                console.log(error);
-                $ionicPopup.alert({
-                    title: 'Erro',
-                    template: 'Não foi possível editar, tente novamente mais tarde.',
-                    okType: 'button-assertive',
-                });
-            });
-        }
-
+        
         function exibirLoading() {
             $ionicLoading.show({
                 content: 'Loading',

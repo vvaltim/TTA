@@ -1,0 +1,19 @@
+<ion-view title="Cadastro" class="bar-royal">
+    <ion-content padding="true" class="has-header">
+        <div class="card">
+            <form name="formulario">
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : formulario.email.$invalid && !formulario.email.$pristine }">
+                    <span class="input-label">E-mail</span>
+                    <span class="form-error" ng-show="formulario.email.$error.email && !formulario.email.$pristine">E-mail inválido</span>
+                    <input type="email" name="email" placeholder="E-mail" ng-model="usuario.email">
+                </label>
+                <label class="item item-input item-stacked-label" ng-class="{ 'has-error' : formulario.senha.$invalid && !formulario.senha.$pristine }">
+                    <span class="input-label">Senha</span>
+                    <span class="form-error" ng-show="formulario.senha.$error.required && !formulario.senha.$pristine">Senha é obrigatória</span>
+                    <input type="password" name="senha" placeholder="Senha" ng-model="usuario.senha" required>
+                </label>
+            </form>
+        </div>
+        <button class="button button-royal button-block" ng-disabled="formulario.$invalid" ng-click="cadastrar(usuario)">Criar e logar</button>
+    </ion-content>
+</ion-view>

@@ -1,10 +1,13 @@
 angular.module('app.controllers')
-    .controller('cadastroDeAtividadeCtrl', function ($scope, $state, $ionicLoading, $ionicPopup, MobileFactory) {
+    .controller('editarAtividadeCtrl', function ($scope, $state, $ionicLoading, $ionicPopup, AtividadeService, MobileFactory) {
         // variaveis utilizadas
+        $scope.atividade = [];
         $scope.categorias = [];
         $scope.disciplinas = [];
 
         $scope.$on('$ionicView.enter', function () {
+            $scope.atividade = AtividadeService.getAtividade();
+
             var usuario = JSON.parse(window.localStorage.getItem("usuario"));
             exibirLoading();
             MobileFactory.listarDisciplinas(usuario.id).then(function (data) {
@@ -37,7 +40,7 @@ angular.module('app.controllers')
             atividade.usuario = usuario.id;
             console.log(atividade);
             exibirLoading();
-            MobileFactory.salvarAtividade(atividade).then(function (data) {
+            MobileFactory.editarAtividade(atividade).then(function (data) {
                 $ionicLoading.hide();
                 console.log(data);
                 $state.go('menu.dashboard');
@@ -49,7 +52,8 @@ angular.module('app.controllers')
                     template: 'Não foi possível salvar a atividade. Tente novamente mais tarde.',
                     okType: 'button-assertive'
                 });
-            });        }
+            });
+        }
 
         function exibirLoading() {
             $ionicLoading.show({

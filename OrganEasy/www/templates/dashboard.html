@@ -1,4 +1,4 @@
-<ion-view title="OrganEasy" id="page1" class="bar-balanced">
+<ion-view title="OrganEasy" class="bar-balanced">
     <!-- Subbarra com botões -->
     <ion-header-bar class="bar-subheader bar-secundaria">
         <h1 class="title">Dashboard</h1>
@@ -6,9 +6,25 @@
     </ion-header-bar>
     <ion-content padding="true" class="has-header">
         <div class="card">
-            <div class="item">
-                <h2>Nome</h2>
-                <p>Categoria - Disciplina</p>
+            <div class="item item-divider">
+                Atividades em aberto
+            </div>
+            <div class="item item-icon-left" ng-repeat="atividade in atividades" ng-click="visualizar(atividade)">
+                <i class="icon ion-checkmark-circled balanced" ng-show="exibirIcone(atividade) == 3"></i>
+                <i class="icon ion-information-circled energized" ng-show="exibirIcone(atividade) == 2"></i>
+                <i class="icon ion-close-circled assertive" ng-show="exibirIcone(atividade) == 1"></i>
+                <h2>{{atividade.descricao}}</h2>
+                <p>{{atividade.categoria.nome}} - {{atividade.disciplina.nome}}</p>
+            </div>
+            <div class="item item-divider">
+                Atividades concluidas
+            </div>
+            <div class="item item-icon-left" ng-repeat="atividadeConcluida in atividadesConcluidas" ng-click="visualizar(atividadeConcluida)">
+                <i class="icon ion-checkmark-circled balanced" ng-show="exibirIcone(atividadeConcluida) == 3"></i>
+                <i class="icon ion-information-circled energized" ng-show="exibirIcone(atividadeConcluida) == 2"></i>
+                <i class="icon ion-close-circled assertive" ng-show="exibirIcone(atividadeConcluida) == 1"></i>
+                <h2>{{atividadeConcluida.descricao}}</h2>
+                <p>{{atividadeConcluida.categoria.nome}} - {{atividadeConcluida.disciplina.nome}}</p>
             </div>
         </div>
     </ion-content>

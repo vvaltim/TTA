@@ -1,26 +1,17 @@
 angular.module('app.controllers')
-    .controller('editarProfessorCtrl', function ($scope, $ionicPopup, $state, $ionicLoading, ProfessorService, MobileFactory) {
-        $scope.professor = [];
+    .controller('editarCategoriaCtrl', function ($scope, $ionicPopup, $state, $ionicLoading, CategoriaService, MobileFactory) {
+        $scope.categoria = [];
         $scope.$on('$ionicView.enter', function () {
             //chamar o evento toda vez que entra na view
-            var idProfessorTemp = ProfessorService.getProfessor();
-            exibirLoading();
-            MobileFactory.listarProfessor(idProfessorTemp).then(function (data) {
-                console.log(data.data);
-                $ionicLoading.hide();
-                $scope.professor = data.data;
-            }, function (error) {
-                $ionicLoading.hide();
-                console.data(error);
-            });
+            $scope.categoria = CategoriaService.getCategoria();
         });
 
-        $scope.salvar = function (professor) {
+        $scope.salvar = function (categoria) {
             exibirLoading();
-            MobileFactory.editarProfessor(professor).then(function (data) {
+            MobileFactory.editarCategoria(categoria).then(function (data) {
                 $ionicLoading.hide();
                 console.log(data);
-                $state.go('menu.professor');
+                $state.go('menu.categoria');
             }, function (error) {
                 $ionicLoading.hide();
                 console.log(error);
